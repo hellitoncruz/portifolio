@@ -1,0 +1,679 @@
+@font-face {
+  font-family: 'Reddit Mono';
+  src: url(../src/fonts/RedditMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'Reddit Mono Light';
+  src: url(../src/fonts/RedditMono-Light.ttf);
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Reddit Mono', sans-serif;
+  background: #151515;
+
+  .home-container {
+    background: #121212;
+    min-height: 90vh;
+    background-image: url(./assets/Looper-BG.svg);
+    background-repeat: no-repeat;
+    background-position: right -200px top 135px;
+
+    @media (max-width: 1024px) {
+      min-height: unset;
+      background: #121212;
+    }
+
+    .menu-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1080px;
+      margin: 0 auto;
+      border-bottom: 2px solid #151515;
+      padding: 40px 0;
+      font-size: 18px;
+      line-height: 22px;
+
+      p {
+        color: #00D2DF;
+        margin: 0;
+
+        @media (max-width: 1024px) {
+          padding-left: 16px;
+        }
+      }
+
+      .open-menu-button {
+        display: none;
+      }
+
+      .close-menu-button {
+        @media (min-width: 1024px) {
+          display: none;
+        }
+      }
+
+      @media (max-width: 1024px) {
+        padding: 24px 0;
+
+        position: fixed;
+        width: 100%;
+
+        .open-menu-button {
+          display: contents;
+          width: 0;
+          height: 0;
+          padding: 0;
+        }
+
+        
+
+        .open-menu-button::after {
+          content: url('./assets/menu\ hamburguer.svg');
+          position: absolute;
+          right: 36px;
+        }
+
+        
+
+        .menu-mobile {
+          transform: none;
+          z-index: 1;
+          align-items: center;
+          padding-top: 100px;
+        }
+      }
+
+      ul {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        gap: 48px;
+        margin: 0;
+        align-items: center;
+
+        @media (max-width: 1024px) {
+          background-color: #151515;
+          flex-direction: column;
+          position: absolute;
+          width: 100vw;
+          height: 100vh;
+          top: 0;
+          gap: 0px;
+
+          transition: .8s;
+          transform: translateY(-100vh);
+
+          .close-menu-button {
+            display: contents;
+            width: 0;
+            height: 0;
+            padding: 0;
+          }
+
+          .close-menu-button::after {
+            content: url('./assets/close\ menu.svg');
+            position: absolute;
+            right: 36px;
+            top: 24px;
+          }
+        }
+
+
+        li {
+          @media (max-width: 1024px) {
+            padding: 16px;
+          }
+
+          a {
+            color: #C4C4C4;
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+
+        }
+      }
+
+
+    }
+
+    .home-content {
+      max-width: 1080px;
+      margin: 160px auto;
+
+      @media (max-width: 1024px) {
+        padding: 102px 16px 56px;
+        margin: 0;
+      }
+
+      .home-texts {
+        gap: 32px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 64px;
+
+        p {
+          font-size: 24px;
+          line-height: 29px;
+          color: #fff;
+          margin: 0;
+
+          @media (max-width: 1024px) {
+            font-size: 16px;
+            line-height: 19px;
+          }
+        }
+
+        h1 {
+          font-size: 64px;
+          line-height: 77px;
+          color: #00D2DF;
+          margin: 0;
+
+          @media (max-width: 1024px) {
+            font-size: 32px;
+            line-height: 39px;
+          }
+        }
+      }
+
+      .social-links {
+        display: flex;
+
+        @media (max-width: 1024px) {
+          gap: 16px;
+          align-items: center;
+          justify-content: space-between;
+
+        }
+
+        a {
+          display: flex;
+          align-items: center;
+          margin: 0 48px 0 0;
+          border: 2px solid;
+          border-image-slice: 1;
+          border-image-source: linear-gradient(132.33deg, #D24074 -0.67%, #6518B4 102.54%);
+          text-decoration: none;
+          color: #fff;
+          font-size: 16px;
+          line-height: 19px;
+          border-radius: 4px;
+          padding: 10px 32px;
+          
+          @media (max-width: 1024px) {
+            margin:0;
+            padding: 8px 32px;
+            font-size: 14px;
+            line-height: 17px;
+            justify-content: space-evenly;
+            max-width: 30%;
+            width: 100%;
+          }
+
+          @media (max-width: 400px) {
+            justify-content: space-between;
+            max-width: 90px;
+          }
+
+          &::before {
+            content: url(./assets/github.svg);
+            margin-right: 16px;
+
+            @media (max-width: 1024px) {
+              margin-right: 8px;
+            }
+          }
+
+          &:first-child {
+            border-image-source: linear-gradient(51.06deg, #9358F7 0.87%, #10D7E2 97.48%);
+
+            &::before {
+              content: url(./assets/linkedin.svg);
+            }
+          }
+
+
+        }
+      }
+    }
+
+  }
+
+  .about-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 100px 0;
+    color: #fff;
+    display: flex;
+    min-height: 65vh;
+
+    @media (max-width: 1024px) {
+      min-height: unset;
+      padding: 0 16px;
+    }
+
+    img {
+      width: 367px;
+      height: 367px;
+      border-left: 4px solid #00D2DF;
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+
+    .texts-about {
+      margin-left: 180px;
+
+      @media (max-width: 1024px) {
+        margin: 56px 0;
+
+      }
+
+      h3 {
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+        margin: 0 0 48px 0;
+
+        @media (max-width: 1024px) {
+          margin: 0 0 24px 0;
+        }
+      }
+
+      h4 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 28px;
+
+        @media (max-width: 1024px) {
+          font-size: 16px;
+          line-height: 19px;
+          margin-bottom: 8px;
+        }
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 32px;
+        color: #C4C4C4;
+        margin-bottom: 50px;
+        font-family: 'Reddit Mono Light', sans-serif;
+
+        @media (max-width: 1024px) {
+          font-size: 14px;
+          line-height: 20px;
+          margin-bottom: 28px;
+        }
+      }
+    }
+
+    .about-buttons {
+      display: flex;
+
+      @media (max-width: 1024px) {
+        justify-content: space-evenly;
+      }
+
+      @media (max-width: 400px) {
+        justify-content: space-between;
+      }
+      
+      a {
+        display: flex;
+        align-items: center;
+        margin: 0 48px 0 0;
+        border: 2px solid;
+        border-image-slice: 1;
+
+        border-image-source: linear-gradient(51.06deg, #9358F7 0.87%, #10D7E2 97.48%);
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+        line-height: 19px;
+        border-radius: 4px;
+        padding: 10px 32px;
+
+        @media (max-width: 1024px) {
+          padding: 8px 28px;
+          margin:0;
+          font-size: 14px;
+          line-height: 17px;
+
+          max-width: 30%;
+          width: 100%;
+        }
+
+        @media (max-width: 400px) {
+          max-width: 96px;
+        }
+
+        &::before {
+          content: url(./assets/mail.svg);
+          margin-right: 16px;
+
+          @media (max-width: 1024px) {
+            margin-right: 8px;
+          }
+        }
+
+        &:first-child {
+          border-image-source: linear-gradient(132.33deg, #D24074 -0.67%, #6518B4 102.54%);
+
+          &::before {
+            content: url(./assets/download-cloud.svg);
+          }
+
+        }
+      }
+    }
+  }
+
+  .xp-container {
+    padding: 100px 0;
+    min-height: 65vh;
+    color: #fff;
+    background: #121212;
+
+    @media (max-width: 1024px) {
+      min-height: unset;
+      padding: 0 16px;
+    }
+
+    .xp-content {
+      max-width: 1080px;
+      margin: 0 auto;
+
+      h3 {
+        font-size: 24px;
+        line-height: 29px;
+        text-transform: uppercase;
+      }
+
+      .tab-layout {
+        display: flex;
+
+        @media (max-width: 1024px) {
+          flex-direction: column;
+        }
+
+        .tab-items {
+          padding: 0;
+          list-style: none;
+          width: 100%;
+          max-width: 190px;
+          margin-right: 86px;
+
+          .tab-item,
+          .tab-item-active {
+            width: 100%;
+            padding: 20px 0px 20px 31px;
+            font-size: 18px;
+            line-height: 22px;
+            border-left: 2px solid #151515;
+            cursor: pointer;
+          }
+
+          .tab-item-active {
+            background: #151515;
+            border-left: 2px solid #00D2DF;
+          }
+        }
+
+        .tab-contents {
+          .job-name-txt {
+            display: flex;
+            justify-content: space-between;
+            font-size: 24px;
+            line-height: 29px;
+            margin: 14px 0 36px;
+            align-items: baseline;
+
+            span {
+              font-size: 16px;
+              line-height: 24px;
+            }
+          }
+
+          .job-company-txt {
+            margin-bottom: 36px;
+            font-size: 16px;
+            line-height: 24px;
+            color: #00D2DF;
+          }
+
+          .job-description-txt {
+            font-size: 18px;
+            line-height: 28px;
+            color: #C4C4C4;
+            font-family: 'Reddit Mono Light', sans-serif;
+          }
+        }
+
+      }
+    }
+  }
+
+  .projects-container {
+    padding: 100px 0;
+    min-height: 65vh;
+    color: #fff;
+    max-width: 1080px;
+    margin: 0 auto;
+
+    @media (max-width: 1024px) {
+      min-height: unset;
+      padding: 0 16px;
+    }
+
+    h3 {
+      font-size: 24px;
+      line-height: 29px;
+      margin: 0 0 64px 0;
+    }
+
+    .project-contents {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      gap: 8px;
+
+      @media (max-width: 1024px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .project-item {
+        max-width: 530px;
+        margin-bottom: 78px;
+
+        @media (max-width: 1024px) {
+          max-width: 312px;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .project-img {
+          width: 530px;
+          height: 200px;
+
+          @media (max-width: 1024px) {
+            width: 312px;
+            height: 130px;
+          }
+        }
+
+        .project-name {
+          font-size: 24px;
+          line-height: 29px;
+          font-weight: 500;
+        }
+
+
+        .project-description {
+          font-size: 16px;
+          line-height: 26px;
+          color: #c4c4c4;
+          font-family: 'Reddit Mono Light', sans-serif;
+        }
+
+        .project-tecs-container {
+          position: relative;
+        }
+
+        .project-tecs {
+          font-size: 14px;
+          line-height: 24px;
+          color: #00D2DF;
+          margin-bottom: 36px;
+          width: fit-content;
+          cursor: pointer;
+        }
+
+        .project-link {
+          font-size: 16px;
+          line-height: 24px;
+          color: #fff;
+          text-decoration: none;
+          padding: 8px 16px;
+          border: 2px solid;
+          border-image-slice: 1;
+          border-image-source: linear-gradient(51.06deg, #9358F7 0.87%, #10D7E2 97.48%);
+          display: flex;
+          max-width: 181px;
+          justify-content: center;
+          align-items: center;
+
+          &::before {
+            content: url(./assets/link.svg);
+            margin-right: 16px;
+            margin-top: 3px;
+          }
+        }
+
+        .tecs-list {
+          display: none;
+        }
+
+        //código para mostrar o modal ao passar o mouse sobre o textos das tecs
+        .project-tecs:hover+.tecs-list {
+          margin: 0;
+          list-style: none;
+          background: #121212;
+          padding: 16px;
+          display: flex;
+          flex-direction: column;
+          align-items: baseline;
+          max-width: 220px;
+          position: absolute;
+          width: 100%;
+          right: 0;
+          border: 4px solid #fff;
+          top: 0px;
+
+          .tec-name {
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+
+            .logo-tec {
+              width: 36px;
+              padding-right: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #toTop {
+    background: transparent;
+    border: 0.1px solid #9358F7;
+    padding: 8px;
+    position: fixed;
+    bottom: 50px;
+    right: 45px;
+    opacity: 0.7;
+    scroll-behavior: smooth;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    font-size: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9358F7;
+
+    @media (max-width: 1024px) {
+      bottom: 25px;
+      right: 20px;
+      width: 36px;
+      height: 36px;
+      font-size: 22px;
+    }
+  }
+
+  footer {
+    @media (max-width: 1024px) {
+      padding: 0 16px;
+    }
+
+    background-color: #121212;
+
+    .footer-content {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+
+      p {
+        color: #00D2DF;
+        animation: changeColor 3s infinite;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        text-shadow: gray 1px 0.1px 1px;
+      }
+
+      @keyframes changeColor {
+        25% {
+          color: #00D2DF;
+        }
+
+        25% {
+          color: #10D7E2;
+        }
+
+        25% {
+          color: #9358F7;
+        }
+
+        25% {
+          color: #6518B4;
+        }
+
+      }
+    }
+
+  }
+
+  .tab-content {
+    display: none;
+  }
+
+  .show-content {
+    display: block;
+  }
+
+}
